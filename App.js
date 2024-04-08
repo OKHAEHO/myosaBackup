@@ -1,20 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import List from "./List";
+import ex from "./searchPage";
+import tt from "./tutorialView";
+import TVP1 from "./Tutorial/TutorialViewPg1";
+import TVP2 from "./Tutorial/TutorialViewPg2";
+import TVP3 from "./Tutorial/TutorialViewPg3";
+import TVP4 from "./Tutorial/TutorialViewPg4";
+import TVP5 from "./Tutorial/TutorialViewPg5";
+const Stack = createNativeStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="tr">
+        <Stack.Screen
+          name="TVP1"
+          component={TVP2}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="TVP2"
+          component={TVP1}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="TVP3"
+          component={TVP3}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="TVP4"
+          component={TVP4}
+          options={{ headerShown: true }}
+        />
+        <Stack.Screen
+          name="TVP5"
+          component={TVP5}
+          options={{ headerShown: true }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
